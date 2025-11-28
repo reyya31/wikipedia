@@ -1,0 +1,14 @@
+{
+  "searches": [
+    { "query": "Artificial Intelligence" },
+    { "query": "Mount Everest" },
+    { "query": "Python" },
+    { "query": "Kathmandu" },
+    { "query": "Quantum Computing" },
+    { "query": "Solar System" },
+    { "query": "History of Nepal" },
+    { "query": "Machine Learning" },
+    { "query": "Black Hole" },
+    { "query": "Internet of Things" }
+  ]
+}

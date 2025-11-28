@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-18T10:38:20.084050" rpa="false" schemaversion="5">
+<suite id="s1" name="Query excel" source="C:\Users\Riya Shrestha\Desktop\Testfiles\tests\Query_excel.robot">
+<kw name="Open Homepage" owner="wiki_page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:38:24.465311" level="INFO">Opening browser 'chrome' to base url 'https://www.wikipedia.org/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:38:24.464977" elapsed="39.658429"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T10:39:04.124626" elapsed="0.061615"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Wikipedia</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:39:04.186694" elapsed="0.052889"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:38:24.463434" elapsed="39.776708"/>
+</kw>
+<test id="s1-t1" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:39:04.247093" elapsed="0.195981"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:04.443526" elapsed="0.060222"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:04.504391" level="INFO">Typing text 'Artificial Intelligence' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:04.504057" elapsed="0.113651"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:39:04.618057" elapsed="0.030916"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:04.649556" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:04.649254" elapsed="5.759984"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:39:04.246327" elapsed="6.163180"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:39:10.409881" elapsed="0.069475"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:39:15.480218" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:39:10.479608" elapsed="5.000828"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:15.481104" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:39:15.480762" elapsed="0.542160"/>
+</kw>
+<arg>searches=Artificial Intelligence</arg>
+<status status="PASS" start="2025-11-18T10:39:04.245422" elapsed="11.777790"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:39:04.240638" elapsed="11.783091"/>
+</test>
+<test id="s1-t2" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:39:16.029417" elapsed="0.029557"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:16.059580" elapsed="0.050237"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:16.110603" level="INFO">Typing text 'Mount Everest' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:16.110214" elapsed="0.074234"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:39:16.184703" elapsed="0.022873"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:16.208091" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:16.207828" elapsed="6.967747"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:39:16.028394" elapsed="7.147386"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:39:23.175993" elapsed="0.074916"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:39:28.251490" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:39:23.251140" elapsed="5.000513"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:28.252125" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:39:28.251899" elapsed="0.485848"/>
+</kw>
+<arg>searches=Mount Everest</arg>
+<status status="PASS" start="2025-11-18T10:39:16.027692" elapsed="12.710332"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:39:16.024626" elapsed="12.713933"/>
+</test>
+<test id="s1-t3" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:39:28.742940" elapsed="0.019675"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:28.762864" elapsed="0.035517"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:28.798974" level="INFO">Typing text 'Python' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:28.798641" elapsed="0.063255"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:39:28.862253" elapsed="0.019688"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:28.882424" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:28.882179" elapsed="1.796316"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:39:28.742518" elapsed="1.936140"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:39:30.678866" elapsed="0.045592"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:39:35.725869" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:39:30.724714" elapsed="5.001331"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:35.726575" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:39:35.726316" elapsed="0.184432"/>
+</kw>
+<arg>searches=Python</arg>
+<status status="PASS" start="2025-11-18T10:39:28.741818" elapsed="7.169129"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:39:28.739185" elapsed="7.172066"/>
+</test>
+<test id="s1-t4" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:39:35.914200" elapsed="0.021712"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:35.936172" elapsed="0.034878"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:35.971684" level="INFO">Typing text 'Kathmandu' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:35.971353" elapsed="0.061233"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:39:36.032855" elapsed="0.017323"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:36.050664" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:36.050418" elapsed="5.840013"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:39:35.913753" elapsed="5.976845"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:39:41.890802" elapsed="0.070283"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:39:46.962561" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:39:41.961320" elapsed="5.001400"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:46.963194" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:39:46.962966" elapsed="0.195263"/>
+</kw>
+<arg>searches=Kathmandu</arg>
+<status status="PASS" start="2025-11-18T10:39:35.913296" elapsed="11.245092"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:39:35.911688" elapsed="11.247044"/>
+</test>
+<test id="s1-t5" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:39:47.163283" elapsed="0.020089"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:47.183627" elapsed="0.037259"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:47.221613" level="INFO">Typing text 'Quantum Computing' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:47.221270" elapsed="0.063832"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:39:47.285430" elapsed="0.017764"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:47.303674" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:47.303432" elapsed="0.066770"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:39:47.162813" elapsed="0.207540"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:39:47.370555" elapsed="3.504937"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:39:55.876744" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:39:50.875735" elapsed="5.001177"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:55.877410" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:39:55.877167" elapsed="0.192665"/>
+</kw>
+<arg>searches=Quantum Computing</arg>
+<status status="PASS" start="2025-11-18T10:39:47.162114" elapsed="8.907901"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:39:47.159650" elapsed="8.910791"/>
+</test>
+<test id="s1-t6" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:39:56.073988" elapsed="0.019718"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:56.093972" elapsed="0.038186"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:56.132767" level="INFO">Typing text 'Solar System' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:56.132448" elapsed="0.065320"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:39:56.198258" elapsed="0.018974"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:39:56.217735" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:39:56.217480" elapsed="0.062190"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:39:56.073586" elapsed="0.206254"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:39:56.280037" elapsed="4.682732"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:40:05.964249" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:40:00.963008" elapsed="5.001398"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:05.964860" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:40:05.964638" elapsed="0.194828"/>
+</kw>
+<arg>searches=Solar System</arg>
+<status status="PASS" start="2025-11-18T10:39:56.073129" elapsed="10.086569"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:39:56.071244" elapsed="10.088905"/>
+</test>
+<test id="s1-t7" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:40:06.164014" elapsed="0.030853"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:06.195280" elapsed="0.039561"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:06.235448" level="INFO">Typing text 'History of Nepal' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:06.235113" elapsed="0.067107"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:40:06.302472" elapsed="0.016641"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:06.319593" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:06.319349" elapsed="0.062412"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:40:06.163591" elapsed="0.218323"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:40:06.382107" elapsed="2.828030"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:40:14.211455" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:40:09.210389" elapsed="5.001223"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:14.212069" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:40:14.211844" elapsed="0.186932"/>
+</kw>
+<arg>searches=History of Nepal</arg>
+<status status="PASS" start="2025-11-18T10:40:06.163021" elapsed="8.235920"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:40:06.160823" elapsed="8.238500"/>
+</test>
+<test id="s1-t8" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:40:14.405553" elapsed="0.022779"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:14.428589" elapsed="0.034338"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:14.463483" level="INFO">Typing text 'Machine Learning' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:14.463171" elapsed="0.070100"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:40:14.533691" elapsed="0.020219"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:14.554405" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:14.554158" elapsed="2.991362"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:40:14.405073" elapsed="3.140609"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:40:17.545887" elapsed="0.037938"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:40:22.584397" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:40:17.584057" elapsed="5.000497"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:22.585004" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:40:22.584785" elapsed="0.167672"/>
+</kw>
+<arg>searches=Machine Learning</arg>
+<status status="PASS" start="2025-11-18T10:40:14.404254" elapsed="8.348363"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:40:14.400641" elapsed="8.352300"/>
+</test>
+<test id="s1-t9" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:40:22.755544" elapsed="0.019792"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:22.775584" elapsed="0.027208"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:22.803348" level="INFO">Typing text 'Black Hole' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:22.803034" elapsed="0.067474"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:40:22.870775" elapsed="0.017776"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:22.889030" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:22.888787" elapsed="0.065679"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:40:22.755146" elapsed="0.199478"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:40:22.954823" elapsed="8.755899"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:40:36.711310" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:40:31.710970" elapsed="5.000503"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:36.711956" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:40:36.711716" elapsed="0.171370"/>
+</kw>
+<arg>searches=Black Hole</arg>
+<status status="PASS" start="2025-11-18T10:40:22.754758" elapsed="14.128486"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:40:22.753437" elapsed="14.130138"/>
+</test>
+<test id="s1-t10" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:40:36.886294" elapsed="0.016479"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:36.903030" elapsed="0.027179"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:36.930766" level="INFO">Typing text 'Internet of Things' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:36.930454" elapsed="0.069285"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:40:36.999988" elapsed="0.017300"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:37.017782" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:37.017533" elapsed="0.070710"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:40:36.885938" elapsed="0.202461"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:40:37.088598" elapsed="4.065498"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:40:46.154977" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:40:41.154351" elapsed="5.000784"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:46.155588" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:40:46.155368" elapsed="0.472835"/>
+</kw>
+<arg>searches=Internet of Things</arg>
+<status status="PASS" start="2025-11-18T10:40:36.885554" elapsed="9.742812"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:40:36.884166" elapsed="9.744554"/>
+</test>
+<test id="s1-t11" name="Search Wikipedia Query" line="11">
+<kw name="Perform Search">
+<kw name="Search" owner="wiki_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:40:46.631447" elapsed="0.016243"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@id='searchInput']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:46.647936" elapsed="0.026984"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:46.675461" level="INFO">Typing text 'Cloud Computing' into text field 'xpath=//input[@id='searchInput']'.</msg>
+<arg>xpath=//input[@id='searchInput']</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:46.675157" elapsed="0.067092"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-18T10:40:46.742509" elapsed="0.017052"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:46.760045" level="INFO">Clicking button 'xpath=//*[@id="search-form"]/fieldset/button'.</msg>
+<arg>xpath=//*[@id="search-form"]/fieldset/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:40:46.759804" elapsed="0.071764"/>
+</kw>
+<arg>${searches}</arg>
+<status status="PASS" start="2025-11-18T10:40:46.631095" elapsed="0.200637"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${searches}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-18T10:40:46.831937" elapsed="3.284081"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:40:55.116593" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:40:50.116255" elapsed="5.000492"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:40:55.117199" level="INFO">Opening url 'https://www.wikipedia.org/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:40:55.116980" elapsed="0.165844"/>
+</kw>
+<arg>searches=Cloud Computing</arg>
+<status status="PASS" start="2025-11-18T10:40:46.630714" elapsed="8.652280"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:40:46.629308" elapsed="8.654005"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-11-18T10:40:55.284140" elapsed="2.198081"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:38:20.085837" elapsed="157.396515"/>
+</suite>
+<statistics>
+<total>
+<stat pass="11" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Query excel" id="s1" pass="11" fail="0" skip="0">Query excel</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-11-18T10:39:16.024901" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+<msg time="2025-11-18T10:39:28.739263" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+<msg time="2025-11-18T10:39:35.911739" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+<msg time="2025-11-18T10:39:47.159792" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+<msg time="2025-11-18T10:39:56.071328" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+<msg time="2025-11-18T10:40:06.160895" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+<msg time="2025-11-18T10:40:14.400736" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+<msg time="2025-11-18T10:40:22.753485" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+<msg time="2025-11-18T10:40:36.884212" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+<msg time="2025-11-18T10:40:46.629355" level="WARN">Multiple tests with name 'Search Wikipedia Query' executed in suite 'Query excel'.</msg>
+</errors>
+</robot>

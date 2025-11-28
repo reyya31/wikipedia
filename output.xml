@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-11T15:55:16.261273" rpa="false" schemaversion="5">
+<suite id="s1" name="Youtube Search" source="C:\Users\Riya Shrestha\Desktop\Testfiles\tests\youtube_search.robot">
+<test id="s1-t1" name="Search And Play Video On YouTube" line="7">
+<kw name="Open YouTube Homepage" owner="youtube_page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-11T15:55:16.587430" level="INFO">Opening browser 'chrome' to base url 'https://www.youtube.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-11T15:55:16.587095" elapsed="4.277552"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//button[@title='Search']</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-11T15:55:20.865136" elapsed="0.175665"/>
+</kw>
+<status status="PASS" start="2025-11-11T15:55:16.586111" elapsed="4.454907"/>
+</kw>
+<kw name="Search For Video" owner="youtube_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-11T15:55:21.042708" level="INFO">Typing text 'Selenium tutorial' into text field 'xpath=//button[@title='Search']'.</msg>
+<msg time="2025-11-11T15:55:21.224071" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-11T15:55:21.224600" level="FAIL">InvalidElementStateException: Message: invalid element state
+  (Session info: chrome=142.0.7444.134)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7b5937a35
+	0x7ff7b5937a90
+	0x7ff7b56b14b5
+	0x7ff7b56ff716
+	0x7ff7b573297a
+	0x7ff7b56fcb56
+	0x7ff7b575b8fb
+	0x7ff7b56fb068
+	0x7ff7b56fbe93
+	0x7ff7b5bf29d0
+	0x7ff7b5bece50
+	0x7ff7b5c0cc45
+	0x7ff7b59530ce
+	0x7ff7b595adbf
+	0x7ff7b5940c14
+	0x7ff7b5940dcf
+	0x7ff7b5926828
+	0x7ffb8a427374
+	0x7ffb8aabcc91
+</msg>
+<arg>xpath=//button[@title='Search']</arg>
+<arg>${SEARCH_TERM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-11-11T15:55:21.042226" elapsed="0.190880">InvalidElementStateException: Message: invalid element state
+  (Session info: chrome=142.0.7444.134)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7b5937a35
+	0x7ff7b5937a90
+	0x7ff7b56b14b5
+	0x7ff7b56ff716
+	0x7ff7b573297a
+	0x7ff7b56fcb56
+	0x7ff7b575b8fb
+	0x7ff7b56fb068
+	0x7ff7b56fbe93
+	0x7ff7b5bf29d0
+	0x7ff7b5bece50
+	0x7ff7b5c0cc45
+	0x7ff7b59530ce
+	0x7ff7b595adbf
+	0x7ff7b5940c14
+	0x7ff7b5940dcf
+	0x7ff7b5926828
+	0x7ffb8a427374
+	0x7ffb8aabcc91
+</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//button[@id='search-icon-legacy']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-11-11T15:55:21.233600" elapsed="0.000077"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${SEARCH_TERM}</arg>
+<arg>10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-11-11T15:55:21.233915" elapsed="0.000087"/>
+</kw>
+<status status="FAIL" start="2025-11-11T15:55:21.041588" elapsed="0.192779">InvalidElementStateException: Message: invalid element state
+  (Session info: chrome=142.0.7444.134)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7b5937a35
+	0x7ff7b5937a90
+	0x7ff7b56b14b5
+	0x7ff7b56ff716
+	0x7ff7b573297a
+	0x7ff7b56fcb56
+	0x7ff7b575b8fb
+	0x7ff7b56fb068
+	0x7ff7b56fbe93
+	0x7ff7b5bf29d0
+	0x7ff7b5bece50
+	0x7ff7b5c0cc45
+	0x7ff7b59530ce
+	0x7ff7b595adbf
+	0x7ff7b5940c14
+	0x7ff7b5940dcf
+	0x7ff7b5926828
+	0x7ffb8a427374
+	0x7ffb8aabcc91
+</status>
+</kw>
+<kw name="Play First Video" owner="youtube_page">
+<status status="NOT RUN" start="2025-11-11T15:55:21.234859" elapsed="0.000076"/>
+</kw>
+<kw name="Close YouTube" owner="youtube_page">
+<status status="NOT RUN" start="2025-11-11T15:55:21.235397" elapsed="0.000104"/>
+</kw>
+<doc>Verify that a user can search and play a YouTube video successfully</doc>
+<status status="FAIL" start="2025-11-11T15:55:16.585102" elapsed="4.650979">InvalidElementStateException: Message: invalid element state
+  (Session info: chrome=142.0.7444.134)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7b5937a35
+	0x7ff7b5937a90
+	0x7ff7b56b14b5
+	0x7ff7b56ff716
+	0x7ff7b573297a
+	0x7ff7b56fcb56
+	0x7ff7b575b8fb
+	0x7ff7b56fb068
+	0x7ff7b56fbe93
+	0x7ff7b5bf29d0
+	0x7ff7b5bece50
+	0x7ff7b5c0cc45
+	0x7ff7b59530ce
+	0x7ff7b595adbf
+	0x7ff7b5940c14
+	0x7ff7b5940dcf
+	0x7ff7b5926828
+	0x7ffb8a427374
+	0x7ffb8aabcc91
+</status>
+</test>
+<status status="FAIL" start="2025-11-11T15:55:16.263241" elapsed="4.974443"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Youtube Search" id="s1" pass="0" fail="1" skip="0">Youtube Search</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
