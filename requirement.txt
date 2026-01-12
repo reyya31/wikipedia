@@ -1,3 +1,4 @@
 robotframework
 robotframework-SeleniumLibrary
 robotframework-datadriver
+robotframework-JSONLibrary
