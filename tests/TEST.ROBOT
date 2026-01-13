@@ -8,7 +8,7 @@ Resource   ../pages/wiki_page.robot
 
 *** Test Cases ***
 Search
-    ${data}=    Load Json From File    ../data/data.json
+    ${data}=    Load Json From File    ${CURDIR}/../data/data.json
     Open Homepage
     FOR    ${item}   IN    @{data["searches"]}
         ${query}=       Get From Dictionary    ${item}    query
