@@ -22,7 +22,7 @@ on:
 jobs:
   robot-tests:
     # OS where the job will run
-    runs-on: windows-latest
+    runs-on: macos-latest
 
     # Steps executed in order
     steps:
