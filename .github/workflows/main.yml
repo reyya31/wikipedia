@@ -1,49 +1,33 @@
-name: Run Robot Framework Tests
+name: Robot Tests
 
 on:
   push:
-    branches: ["master"]
+    branches: [ master ]
   pull_request:
-    branches: ["master"]
+    branches: [ master ]
 
 jobs:
-  run-tests:
-    runs-on: ubuntu-latest
+  robot-tests:
+    runs-on: windows-latest
 
     steps:
-      # 1) Checkout repository
+      # Step 1: Checkout code
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      # 2) Setup Python
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: '3.11'
 
-      # 3) Install Xvfb (virtual display for headed mode)
-      - name: Install Xvfb
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xvfb
-
-      # 4) Install dependencies
+      # Step 3: Install Python dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirement.txt
 
-      # 5) Run Robot Framework tests (headed via Xvfb)
-      - name: Run Robot Framework Tests (Headed via Xvfb)
+      # Step 4: Run Robot tests
+      - name: Run Robot Tests
         run: |
-          mkdir -p results
-          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
-            robot -d results tests
-
-      # 6) Upload test results
-      - name: Upload Robot Reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: robot-test-results
-          path: results/
+          robot tests/
