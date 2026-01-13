@@ -80,4 +80,8 @@ jobs:
             Branch: ${{ github.ref_name }}
 
             Download reports:
-            ${{ github.server_url }}/${{ github.repository_
+            Download reports:
+                ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          attachments: |
+            output/report.html
+            output/log.html
