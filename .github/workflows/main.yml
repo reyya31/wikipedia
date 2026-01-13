@@ -1,4 +1,4 @@
-name: Robot Tests
+name: Wikipedia Tests
 
 on:
   push:
@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ master ]
 
+schedule:
+  - cron:'15 5 ** 1-5'
+   workflow_dispatch:
+    
 jobs:
   robot-tests:
     runs-on: windows-latest
