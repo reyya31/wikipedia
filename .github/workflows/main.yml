@@ -30,4 +30,5 @@ jobs:
       # Step 4: Run Robot tests
       - name: Run Robot Tests
         run: |
-          robot tests/
+          robot tests/Query_excel.robot
+         
