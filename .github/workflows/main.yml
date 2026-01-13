@@ -1,48 +1,61 @@
+# Name of the workflow (shown in GitHub Actions UI)
 name: Wikipedia Tests
 
+# Events that trigger this workflow
 on:
+  # Trigger on push to master branch
   push:
     branches: [ master ]
+
+  # Trigger on pull request to master branch
   pull_request:
     branches: [ master ]
 
-schedule:
-  - cron:'15 5 ** 1-5'
-   workflow_dispatch:
-    
+  # Scheduled run (05:15 UTC, Monday–Friday)
+  schedule:
+    - cron: '15 5 * * 1-5'
+
+  # Allow manual trigger from GitHub UI
+  workflow_dispatch:
+
+# Jobs section
 jobs:
   robot-tests:
+    # OS where the job will run
     runs-on: windows-latest
 
+    # Steps executed in order
     steps:
-      # Step 1: Checkout code
+      # Step 1: Checkout repository code
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Python
+      # Step 2: Install Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      # Step 3: Install Python dependencies
+      # Step 3: Install required Python libraries
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirement.txt
 
-      # Step 4: Run Robot tests
+      # Step 4: Run Robot Framework tests
       - name: Run Robot Tests
         run: |
-          robot tests/Query_excel.robot
+          robot --outputdir output tests/Query_excel.robot
 
-          - name: Upload Robot Framework results
+      # Step 5: Upload Robot Framework results (runs even if tests fail)
+      - name: Upload Robot Framework results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: robot-test-results
           path: output/
 
+      # Step 6: Send test report email (runs even if tests fail)
       - name: Send test report email
         if: always()
         uses: dawidd6/action-send-mail@v3
@@ -51,9 +64,13 @@ jobs:
           server_port: 587
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
+
           subject: "Robot Tests - ${{ job.status }}"
           from: "Robot CI <${{ secrets.EMAIL_USERNAME }}>"
-          to: alsonmaharjan10@gmail.com  shresthariya2003@gmail.com
+
+          # Multiple recipients must be comma-separated
+          to: alsonmaharjan10@gmail.com, shresthariya2003@gmail.com
+
           body: |
             Robot Framework test execution completed.
 
@@ -63,9 +80,4 @@ jobs:
             Branch: ${{ github.ref_name }}
 
             Download reports:
-                ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-          attachments: |
-            output/report.html
-            output/log.html
-         
+            ${{ github.server_url }}/${{ github.repository_
