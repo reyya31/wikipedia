@@ -2,20 +2,21 @@ name: Robot Tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   robot-tests:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repo
-      - uses: actions/checkout@v3
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      # Step 2: Install system dependencies and Google Chrome
-      - name: Install dependencies
+      # Step 2: Install system dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -28,38 +29,45 @@ jobs:
             libatk1.0-0 \
             libatk-bridge2.0-0 \
             libx11-xcb1 \
-            libasound2 \
+            libasound2t64 \
             wget \
             apt-transport-https \
             ca-certificates \
             gnupg
 
-          # Add Google Chrome repo and install Chrome
+      # Step 3: Install Google Chrome
+      - name: Install Google Chrome
+        run: |
           wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-linux-signing-key.gpg
           echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux-signing-key.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
 
-      # Step 3: Install Python packages
-      - name: Install Python packages
+      # Step 4: Install Python dependencies
+      - name: Install Python dependencies
         run: |
-          python3 -m pip install --upgrade pip
-          pip install robotframework selenium robotframework-seleniumlibrary webdriver-manager
+          pip install --upgrade pip
+          pip install \
+            robotframework \
+            selenium \
+            robotframework-seleniumlibrary \
+            webdriver-manager
 
-      # Step 4: Check Chrome and ChromeDriver versions
+      # Step 5: Verify Chrome & ChromeDriver
       - name: Check Chrome and ChromeDriver versions
         run: |
           echo "Google Chrome version:"
           google-chrome --version
-          echo "ChromeDriver version (webdriver-manager will install):"
+          echo "ChromeDriver version:"
           python3 -c "from webdriver_manager.chrome import ChromeDriverManager; print(ChromeDriverManager().install())"
 
-      # Step 5: Run Robot Framework tests inside Xvfb (headless display)
+      # Step 6: Run Robot Framework tests (Headless using Xvfb)
       - name: Run Robot Tests
         run: |
-          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" robot -d output --include images tests/
+          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+          robot -d output tests/
 
-      # Step 6: Upload Robot Framework output artifacts
+      # Step 7: Upload test reports
       - name: Upload Robot Framework results
         if: always()
         uses: actions/upload-artifact@v4
