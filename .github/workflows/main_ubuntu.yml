@@ -1,0 +1,68 @@
+name: Robot Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  robot-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repo
+      - uses: actions/checkout@v3
+
+      # Step 2: Install system dependencies and Google Chrome
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            python3-pip \
+            xvfb \
+            unzip \
+            fonts-liberation \
+            libnss3 \
+            libxss1 \
+            libatk1.0-0 \
+            libatk-bridge2.0-0 \
+            libx11-xcb1 \
+            libasound2 \
+            wget \
+            apt-transport-https \
+            ca-certificates \
+            gnupg
+
+          # Add Google Chrome repo and install Chrome
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-linux-signing-key.gpg
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux-signing-key.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      # Step 3: Install Python packages
+      - name: Install Python packages
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install robotframework selenium robotframework-seleniumlibrary webdriver-manager
+
+      # Step 4: Check Chrome and ChromeDriver versions
+      - name: Check Chrome and ChromeDriver versions
+        run: |
+          echo "Google Chrome version:"
+          google-chrome --version
+          echo "ChromeDriver version (webdriver-manager will install):"
+          python3 -c "from webdriver_manager.chrome import ChromeDriverManager; print(ChromeDriverManager().install())"
+
+      # Step 5: Run Robot Framework tests inside Xvfb (headless display)
+      - name: Run Robot Tests
+        run: |
+          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" robot -d output --include images tests/
+
+      # Step 6: Upload Robot Framework output artifacts
+      - name: Upload Robot Framework results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-test-results
+          path: output/
